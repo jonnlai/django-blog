@@ -3,13 +3,11 @@ from .models import About
 
 # Create your views here.
 
-def about(request):
-    queryset = About.objects.all().order_by('-updated_on').first()
-    template_name = "about/about.html"
+def about_me(request):
+    about = About.objects.all().order_by('-updated_on').first()
 
     return render(
         request,
-        template_name,
-        {"about": about}
+        "about/about.html",
+        {"about": about},
     )
-
